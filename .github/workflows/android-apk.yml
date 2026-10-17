@@ -31,12 +31,17 @@ jobs:
           node-version: 22
           cache: npm
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 17
 
-      - uses: android-actions/setup-android@v3
+      # Android SDK, GitHub'ın ubuntu sunucularında hazır kurulu gelir (ANDROID_HOME).
+      - name: Android SDK kontrolü
+        run: |
+          echo "ANDROID_HOME=$ANDROID_HOME"
+          ls "$ANDROID_HOME"
+          echo "sdk.dir=$ANDROID_HOME" > /tmp/local.properties
 
       - name: Bağımlılıkları kur
         run: npm ci
@@ -48,7 +53,9 @@ jobs:
           npm test
 
       - name: Yerel Android projesini üret
-        run: npx expo prebuild --platform android --no-install
+        run: |
+          npx expo prebuild --platform android --no-install
+          cp /tmp/local.properties android/local.properties
 
       - name: İmza anahtarını hazırla (varsa)
         if: env.HAS_KEYSTORE == 'true'
