@@ -6,6 +6,16 @@ npm run verify                    # typecheck + lint + test + Android JS paketi
 cd backend && npm test && npm run build
 ```
 
+## APK indirme bağlantısı (GitHub Actions — Expo hesabı gerekmez)
+`.github/workflows/android-apk.yml` APK'yı GitHub'ın sunucularında derler:
+1. Projeyi bir GitHub deposuna yükleyin (`main` dalı).
+2. Depoda **Actions** sekmesi → "Android APK" → **Run workflow**. (~15–25 dk)
+3. Bitince çalıştırma sayfasındaki **Artifacts › EzanVakti571-apk** düğmesiyle indirin.
+4. Kalıcı bir indirme sayfası için etiket atın: `git tag v0.1.0 && git push --tags` → APK **Releases** sayfasına eklenir.
+
+İmza: `ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD` sırları tanımlı değilse APK test (debug) anahtarıyla imzalanır — telefona kurulur ama Play Store'a yüklenemez. Anahtar üretmek için:
+`keytool -genkeypair -v -keystore release.keystore -alias ezanvakti571 -keyalg RSA -keysize 2048 -validity 10000` ve `base64 -w0 release.keystore`. Anahtarı kaybetmeyin; güncellemeler aynı anahtarla imzalanmalıdır.
+
 ## Android / iOS derlemesi (EAS)
 ```bash
 npx eas-cli@latest login
