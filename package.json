@@ -1,22 +1,53 @@
 {
   "name": "ezanvakti571",
-  "version": "1.0.0",
-  "main": "index.ts",
+  "version": "0.1.0",
+  "main": "expo-router/entry",
   "dependencies": {
+    "@expo/metro-runtime": "~58.0.14",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "adhan": "4.4.6",
     "expo": "~58.0.14",
+    "expo-constants": "~58.0.12",
+    "expo-font": "~58.0.8",
+    "expo-haptics": "~58.0.7",
+    "expo-linking": "~58.0.13",
+    "expo-location": "~58.0.17",
+    "expo-notifications": "~58.1.5",
+    "expo-router": "~58.0.23",
+    "expo-sensors": "~58.0.4",
+    "expo-splash-screen": "~58.0.10",
     "expo-status-bar": "~58.0.3",
+    "expo-system-ui": "~58.0.6",
     "react": "19.3.0",
-    "react-native": "0.88.0"
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-safe-area-context": "~5.10.1",
+    "react-native-screens": "~4.30.0",
+    "react-native-svg": "15.16.0",
+    "react-native-web": "~0.21.4"
   },
   "devDependencies": {
+    "@types/node": "22.20.5",
     "@types/react": "~19.3.0",
-    "typescript": "~6.0.3"
+    "all-the-cities": "3.1.0",
+    "eslint": "9.39.5",
+    "eslint-config-expo": "58.0.4",
+    "turkey-neighbourhoods": "4.0.3",
+    "typescript": "~6.0.3",
+    "vitest": "5.0.5"
   },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tests",
+    "lint": "expo lint",
+    "test": "vitest run",
+    "data:locations": "node scripts/build-locations.mjs",
+    "export:android": "expo export --platform android --output-dir dist/android",
+    "export:ios": "expo export --platform ios --output-dir dist/ios",
+    "verify": "npm run typecheck && npm run lint && npm run test && npm run export:android"
   },
   "private": true
 }

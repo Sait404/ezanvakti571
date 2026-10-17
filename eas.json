@@ -1,0 +1,9 @@
+{
+  "cli": { "version": ">= 16.0.0", "appVersionSource": "local" },
+  "build": {
+    "development": { "developmentClient": true, "distribution": "internal", "env": { "EXPO_PUBLIC_API_URL": "" } },
+    "preview": { "distribution": "internal", "android": { "buildType": "apk" } },
+    "production": { "android": { "buildType": "app-bundle" }, "env": { "EXPO_PUBLIC_API_URL": "https://api.ezanvakti571.example" } }
+  },
+  "submit": { "production": {} }
+}

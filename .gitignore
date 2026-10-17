@@ -39,3 +39,11 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# EzanVakti571
+.env
+.env.local
+dist/
+backend/node_modules
+backend/dist
+backend/.env

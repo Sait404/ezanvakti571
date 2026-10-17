@@ -1,25 +1,82 @@
 {
   "expo": {
-    "name": "ezanvakti571",
+    "name": "EzanVakti571",
     "slug": "ezanvakti571",
-    "version": "1.0.0",
+    "scheme": "ezanvakti571",
+    "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
+    "description": "EzanVakti571 — Türkiye'nin tüm il, ilçe, mahalle ve köyleri için namaz vakitleri, kıble ve tesbih.",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ezanvakti571.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "CFBundleDisplayName": "EzanVakti571",
+        "NSLocationWhenInUseUsageDescription": "EzanVakti571, bulunduğunuz yerin namaz vakitlerini ve kıble yönünü göstermek için konumunuzu yalnızca siz istediğinizde bir kez kullanır. İzin vermeden de konumu listeden seçebilirsiniz.",
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
+      "package": "com.ezanvakti571.app",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0B3D2E",
         "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "POST_NOTIFICATIONS",
+        "VIBRATE"
+      ],
+      "blockedPermissions": [
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ],
+      "predictiveBackGestureEnabled": false,
+      "allowBackup": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B3D2E",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 180,
+          "dark": {
+            "backgroundColor": "#08140F",
+            "image": "./assets/splash-icon.png"
+          }
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "EzanVakti571, bulunduğunuz yerin namaz vakitlerini ve kıble yönünü göstermek için konumunuzu yalnızca siz istediğinizde kullanır.",
+          "isAndroidBackgroundLocationEnabled": false,
+          "isIosBackgroundLocationEnabled": false
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#0B3D2E"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
     }
   }
 }

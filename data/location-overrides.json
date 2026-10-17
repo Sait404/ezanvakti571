@@ -1,0 +1,4 @@
+{
+  "_readme": "Yalnızca doğrulanmış ve lisansı uygun kaynaktan alınmış ilçe merkezi koordinatları eklenir. Her kayıtta plate, district (PTT yazımıyla), lat, lon, source, license zorunludur. Ekledikten sonra: npm run data:locations",
+  "districts": []
+}
